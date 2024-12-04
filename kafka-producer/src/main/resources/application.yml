@@ -1,0 +1,23 @@
+server:
+  port: 7070
+
+#spring:
+#  cloud:
+#    stream:
+#      bindings:
+#        output:
+#          destination: booksTopic
+
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group_id: test_group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+    producer:
+      bootstrap-server: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
